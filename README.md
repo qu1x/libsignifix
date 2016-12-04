@@ -89,7 +89,6 @@ int main() {
 	assert(format_load(-2.927e-06) == "-2.927 µA");
 }
 ```
-```
 
 In case of displaying a file size difference after modification, a plus sign
 might be preferred for positive values:
