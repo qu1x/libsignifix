@@ -13,22 +13,13 @@ matrix:
             - gcc-5
             - g++-5
       env: JOB_CC=gcc-5 JOB_CXX=g++-5
-    - compiler: clang
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-3.7
-          packages:
-            - clang-3.8
-      env: JOB_CC=clang-3.8 JOB_CXX=clang++-3.7
 
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y dh-autoreconf libtool doxygen graphviz
 script:
   - ./bootstrap
-  - FLAGS="-Werror -Wall -Wextra -pedantic -O3" ./configure CC=$JOB_CC CFLAGS=$FLAGS CXX=$JOB_CXX CXXFLAGS=$FLAGS
+  - ./configure CC=$JOB_CC CXX=$JOB_CXX
   - make
   - make check
 
