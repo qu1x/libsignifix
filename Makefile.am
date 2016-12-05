@@ -36,37 +36,43 @@ readme_format_rate \
 readme_format_load \
 readme_format_diff
 
+metric_unit_prefix_CXXFLAGS = -Isrc
 metric_unit_prefix_LDADD = libsignifix.la
 metric_unit_prefix_SOURCES = tests/metric_unit_prefix.cxx
 
+fixed_significance_CXXFLAGS = -Isrc
 fixed_significance_LDADD = libsignifix.la
 fixed_significance_SOURCES = tests/fixed_significance.cxx
 
+formatting_options_CXXFLAGS = -Isrc
 formatting_options_LDADD = libsignifix.la
 formatting_options_SOURCES = tests/formatting_options.cxx
 
+lower_prefix_bound_CXXFLAGS = -Isrc
 lower_prefix_bound_LDADD = libsignifix.la
 lower_prefix_bound_SOURCES = tests/lower_prefix_bound.cxx
 
+upper_prefix_bound_CXXFLAGS = -Isrc
 upper_prefix_bound_LDADD = libsignifix.la
 upper_prefix_bound_SOURCES = tests/upper_prefix_bound.cxx
 
+upper_prefix_round_CXXFLAGS = -Isrc
 upper_prefix_round_LDADD = libsignifix.la
 upper_prefix_round_SOURCES = tests/upper_prefix_round.cxx
 
-readme_format_test_CXXFLAGS = "-std=c++14"
+readme_format_test_CXXFLAGS = -std=c++14 -Isrc
 readme_format_test_LDADD = libsignifix.la
 readme_format_test_SOURCES = tests/readme/format_test.cxx
 
-readme_format_rate_CXXFLAGS = "-std=c++14"
+readme_format_rate_CXXFLAGS = -std=c++14 -Isrc
 readme_format_rate_LDADD = libsignifix.la
 readme_format_rate_SOURCES = tests/readme/format_rate.cxx
 
-readme_format_load_CXXFLAGS = "-std=c++14"
+readme_format_load_CXXFLAGS = -std=c++14 -Isrc
 readme_format_load_LDADD = libsignifix.la
 readme_format_load_SOURCES = tests/readme/format_load.cxx
 
-readme_format_diff_CXXFLAGS = "-std=c++14"
+readme_format_diff_CXXFLAGS = -std=c++14 -Isrc
 readme_format_diff_LDADD = libsignifix.la
 readme_format_diff_SOURCES = tests/readme/format_diff.cxx
 
