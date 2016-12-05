@@ -18,21 +18,17 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-3.8
+            - llvm-toolchain-trusty-3.7
           packages:
             - clang-3.8
-      env: JOB_CC=clang-3.8 JOB_CXX=clang++-3.8
-
-env:
-  - CFLAGS="-Werror -Wall -Wextra -pedantic -O3"
-  - CXXFLAGS="-Werror -Wall -Wextra -pedantic -O3"
+      env: JOB_CC=clang-3.8 JOB_CXX=clang++-3.7
 
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y dh-autoreconf libtool doxygen graphviz
 script:
   - ./bootstrap
-  - ./configure CC=$JOB_CC CXX=$JOB_CXX
+  - FLAGS="-Werror -Wall -Wextra -pedantic -O3" ./configure CC=$JOB_CC CFLAGS=$FLAGS CXX=$JOB_CXX CXXFLAGS=$FLAGS
   - make
   - make check
 
