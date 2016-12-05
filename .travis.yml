@@ -27,7 +27,7 @@ before_install:
   - sudo apt-get install -y dh-autoreconf libtool doxygen graphviz
 script:
   - ./bootstrap
-  - ./configure
+  - ./configure CC=$CC CXX=$CXX
   - make
   - make check
 
