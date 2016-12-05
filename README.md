@@ -18,6 +18,8 @@
 
 Number Formatter of Fixed Significance with Metric Unit Prefix
 
+[![Build Status](https://travis-ci.org/qu1x/libsignifix.svg?branch=master)](https://travis-ci.org/qu1x/libsignifix)
+
 [Documentation](https://qu1x.org/file/libsignifix-0.1.0/index.html)
 
 Signifix guarantees a fixed number of significant figures and a fixed number
