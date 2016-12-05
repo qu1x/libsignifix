@@ -21,8 +21,56 @@ lib_LTLIBRARIES = libsignifix.la
 
 libsignifix_ladir = $(includedir)/signifix
 libsignifix_la_LDFLAGS = -version-info 0:0:0
-libsignifix_la_HEADERS = src/signifix.h src/signifix.hxx
-libsignifix_la_SOURCES = $(libsignifix_la_HEADERS) src/signifix.c
+libsignifix_la_HEADERS = src/signifix/signifix.h src/signifix/signifix.hxx
+libsignifix_la_SOURCES = $(libsignifix_la_HEADERS) src/signifix/signifix.c
+
+check_PROGRAMS = \
+metric_unit_prefix \
+fixed_significance \
+formatting_options \
+lower_prefix_bound \
+upper_prefix_bound \
+upper_prefix_round \
+readme_format_test \
+readme_format_rate \
+readme_format_load \
+readme_format_diff
+
+metric_unit_prefix_LDADD = libsignifix.la
+metric_unit_prefix_SOURCES = tests/metric_unit_prefix.cxx
+
+fixed_significance_LDADD = libsignifix.la
+fixed_significance_SOURCES = tests/fixed_significance.cxx
+
+formatting_options_LDADD = libsignifix.la
+formatting_options_SOURCES = tests/formatting_options.cxx
+
+lower_prefix_bound_LDADD = libsignifix.la
+lower_prefix_bound_SOURCES = tests/lower_prefix_bound.cxx
+
+upper_prefix_bound_LDADD = libsignifix.la
+upper_prefix_bound_SOURCES = tests/upper_prefix_bound.cxx
+
+upper_prefix_round_LDADD = libsignifix.la
+upper_prefix_round_SOURCES = tests/upper_prefix_round.cxx
+
+readme_format_test_CXXFLAGS = "-std=c++14"
+readme_format_test_LDADD = libsignifix.la
+readme_format_test_SOURCES = tests/readme/format_test.cxx
+
+readme_format_rate_CXXFLAGS = "-std=c++14"
+readme_format_rate_LDADD = libsignifix.la
+readme_format_rate_SOURCES = tests/readme/format_rate.cxx
+
+readme_format_load_CXXFLAGS = "-std=c++14"
+readme_format_load_LDADD = libsignifix.la
+readme_format_load_SOURCES = tests/readme/format_load.cxx
+
+readme_format_diff_CXXFLAGS = "-std=c++14"
+readme_format_diff_LDADD = libsignifix.la
+readme_format_diff_SOURCES = tests/readme/format_diff.cxx
+
+TESTS = $(check_PROGRAMS)
 
 if ENABLE_DOC
 

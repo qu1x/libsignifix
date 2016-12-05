@@ -19,7 +19,7 @@ AC_INIT([Signifix], [0.1.0],
 
 AC_CONFIG_MACRO_DIR([m4])
 
-AC_CONFIG_SRCDIR([src/signifix.hxx])
+AC_CONFIG_SRCDIR([src/signifix/signifix.hxx])
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -37,6 +37,8 @@ AM_COND_IF([ENABLE_DOC], [
 	AM_COND_IF([HAVE_DOXYGEN], [AC_CONFIG_FILES([doc/Doxyfile])],
 		[AC_MSG_ERROR([doxygen not found])])
 ])
+
+AC_PROG_CXX
 
 AC_CONFIG_FILES([Makefile])
 

@@ -40,7 +40,8 @@ if [ "$1" = revoke ]; then
 		m4 \
 		Makefile \
 		Makefile.in \
-		missing
+		missing \
+		test-driver
 else
 	mkdir -p m4
 	ln -sf README.md README
