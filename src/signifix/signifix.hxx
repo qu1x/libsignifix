@@ -26,14 +26,14 @@
 #ifndef _SIGNIFIX_HXX
 #define _SIGNIFIX_HXX
 
+extern "C" {
+#include "signifix.h"
+}
+
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <exception>
-
-extern "C" {
-#include "signifix.h"
-}
 
 //!
 //! C++ encapsulation of libsignifix.

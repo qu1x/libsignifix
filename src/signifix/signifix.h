@@ -22,6 +22,10 @@
 #ifndef _SIGNIFIX_H
 #define _SIGNIFIX_H
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 //!
 //! The string buffer must be of at least this length.
 //!
