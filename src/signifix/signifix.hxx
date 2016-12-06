@@ -58,13 +58,14 @@ namespace signifix {
 	//! Error abstraction implementing its #description formatting.
 	//!
 	class error: public std::exception {
+	protected:
 		//!
 		//! The number causing this error.
 		//!
 		double number;
-	protected:
+
 		//!
-		//! An #signifix_errstr formatted with the number causing this error.
+		//! A #signifix_errstr formatted with the number causing this error.
 		//!
 		std::string description;
 
@@ -92,11 +93,11 @@ namespace signifix {
 		}
 
 		//!
-		//! Error description.
+		//! The error description.
 		//!
 		//! @return  The #description.
 		//!
-		virtual const char* what() const throw() {
+		const char* what() const throw() {
 			return description.c_str();
 		}
 
