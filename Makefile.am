@@ -31,6 +31,7 @@ formatting_options \
 lower_prefix_bound \
 upper_prefix_bound \
 upper_prefix_round \
+fp_category_safety \
 readme_format_test \
 readme_format_rate \
 readme_format_load \
@@ -59,6 +60,10 @@ upper_prefix_bound_SOURCES = tests/upper_prefix_bound.cxx
 upper_prefix_round_CXXFLAGS = -Isrc
 upper_prefix_round_LDADD = libsignifix.la
 upper_prefix_round_SOURCES = tests/upper_prefix_round.cxx
+
+fp_category_safety_CXXFLAGS = -Isrc
+fp_category_safety_LDADD = libsignifix.la
+fp_category_safety_SOURCES = tests/fp_category_safety.cxx
 
 readme_format_test_CXXFLAGS = -std=c++14 -Isrc
 readme_format_test_LDADD = libsignifix.la

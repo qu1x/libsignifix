@@ -28,20 +28,6 @@
 #include <stdio.h>
 
 int signifix_format(char* buffer, double number, char plus) {
-	switch (fpclassify(number)) {
-		case FP_ZERO:
-		case FP_SUBNORMAL:
-			return SIGNIFIX_ELOWER;
-		case FP_INFINITE:
-			return SIGNIFIX_EUPPER;
-		case FP_NAN:
-			return SIGNIFIX_EINVAL;
-	}
-	char sign[2] = "-";
-	if (number < 0.0)
-		number = -number;
-	else
-		sign[0] = plus;
 	const double factor[] = {
 		1e-24, 1e-21, 1e-18, 1e-15, 1e-12, 1e-09, 1e-06, 1e-03,
 		1e-00,
@@ -52,6 +38,11 @@ int signifix_format(char* buffer, double number, char plus) {
 		" ",
 		"k", "M", "G", "T", "P", "E", "Z", "Y",
 	};
+	char sign[2] = "-";
+	if (number < 0.0)
+		number = -number;
+	else
+		sign[0] = plus;
 	int prefix;
 	if (number < factor[8]) {
 		if (number < factor[4]) {
@@ -102,7 +93,7 @@ int signifix_format(char* buffer, double number, char plus) {
 				"%s%.1f %s", sign, number, symbol[prefix]);
 		else {
 			if (++prefix == sizeof factor / sizeof factor[0])
-				return SIGNIFIX_EUPPER;
+				return isnan(number) ? SIGNIFIX_EINVAL : SIGNIFIX_EUPPER;
 			strlen = snprintf(buffer, SIGNIFIX_BUFLEN,
 				"%s1.000 %s", sign, symbol[prefix]);
 		}

@@ -58,6 +58,10 @@ namespace signifix {
 	//! Error abstraction implementing its #description formatting.
 	//!
 	class error: public std::exception {
+		//!
+		//! The number causing this error.
+		//!
+		double number;
 	protected:
 		//!
 		//! An #signifix_errstr formatted with the number causing this error.
@@ -70,7 +74,7 @@ namespace signifix {
 		//! @param errnum  The error number returned by signifix_format().
 		//! @param number  The number causing this error.
 		//!
-		error(int errnum, double number) {
+		error(int errnum, double number): number(number) {
 			std::ostringstream err;
 			err << SIGNIFIX_ERRSTR(errnum);
 			if (errnum != SIGNIFIX_EINVAL)
@@ -79,6 +83,15 @@ namespace signifix {
 		}
 	public:
 		//!
+		//! The number causing this error.
+		//!
+		//! @return  The #number.
+		//!
+		double why() const {
+			return number;
+		}
+
+		//!
 		//! Error description.
 		//!
 		//! @return  The #description.
@@ -86,6 +99,7 @@ namespace signifix {
 		virtual const char* what() const throw() {
 			return description.c_str();
 		}
+
 		virtual ~error() throw() {}
 	};
 
