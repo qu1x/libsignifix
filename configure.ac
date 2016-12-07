@@ -35,7 +35,7 @@ AC_ARG_ENABLE([doc], AS_HELP_STRING([--disable-doc],
 AM_CONDITIONAL([ENABLE_DOC], [test x$enable_doc = xyes])
 AM_COND_IF([ENABLE_DOC], [
 	AM_COND_IF([HAVE_DOXYGEN], [AC_CONFIG_FILES([doc/Doxyfile])],
-		[AC_MSG_ERROR([doxygen not found])])
+		[AC_MSG_ERROR([doxygen not found, skip with --disable-doc])])
 ])
 
 AC_PROG_CXX
