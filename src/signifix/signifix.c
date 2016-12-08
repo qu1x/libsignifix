@@ -77,20 +77,22 @@ int signifix_format(char* buffer, double number, char plus) {
 	if (prefix != 8)
 		number = number / factor[prefix];
 	int strlen;
-	if (roundf(number * 1e+02) < 1e+04) {
-		const double lower = roundf(number * 1e+03);
+	const double middle = round(number * 1e+02);
+	if (middle < 1e+04) {
+		const double lower = round(number * 1e+03);
 		if (lower < 1e+04) {
 			if (lower < 1e+03)
 				return SIGNIFIX_ELOWER;
 			strlen = snprintf(buffer, SIGNIFIX_BUFLEN,
-				"%s%.3f %s", sign, number, symbol[prefix]);
+				"%s%.3f %s", sign, lower / 1e+03, symbol[prefix]);
 		} else
 			strlen = snprintf(buffer, SIGNIFIX_BUFLEN,
-				"%s%.2f %s", sign, number, symbol[prefix]);
+				"%s%.2f %s", sign, middle / 1e+02, symbol[prefix]);
 	} else {
-		if (roundf(number * 1e+01) < 1e+04)
+		const double upper = round(number * 1e+01);
+		if (upper < 1e+04)
 			strlen = snprintf(buffer, SIGNIFIX_BUFLEN,
-				"%s%.1f %s", sign, number, symbol[prefix]);
+				"%s%.1f %s", sign, upper / 1e+01, symbol[prefix]);
 		else {
 			if (++prefix == sizeof factor / sizeof factor[0])
 				return isnan(number) ? SIGNIFIX_EINVAL : SIGNIFIX_EUPPER;

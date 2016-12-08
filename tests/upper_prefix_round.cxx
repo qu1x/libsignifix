@@ -19,6 +19,6 @@
 #include <cassert>
 
 int main() {
-	assert(signifix::format(999.94995e+03) == "999.9 k");
-	assert(signifix::format(999.94996e+03) == "1.000 M");
+	assert(signifix::format(999.9499999999998e+03) == "999.9 k");
+	assert(signifix::format(999.9499999999999e+03) == "1.000 M");
 }
