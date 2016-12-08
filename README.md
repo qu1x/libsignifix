@@ -20,7 +20,7 @@ Number Formatter of Fixed Significance with Metric Unit Prefix
 
 [![Build Status](https://travis-ci.org/qu1x/libsignifix.svg?branch=master)](https://travis-ci.org/qu1x/libsignifix)
 
-[Documentation](https://qu1x.org/file/libsignifix-0.1.0/index.html)
+[Documentation](https://qu1x.org/file/libsignifix-0.2.0/index.html)
 
 Signifix guarantees a fixed number of significant figures and a fixed number
 of resulting characters by automatically choosing the metric unit prefix and
@@ -116,12 +116,12 @@ int main() {
 
 1. Download stable source distribution tarball.
 
-		wget https://qu1x.org/file/libsignifix-0.1.0.tar.xz
+		wget https://qu1x.org/file/libsignifix-0.2.0.tar.xz
 
 2. Extract and enter.
 
-		tar -xJf libsignifix-0.1.0.tar.xz
-		cd libsignifix-0.1.0
+		tar -xJf libsignifix-0.2.0.tar.xz
+		cd libsignifix-0.2.0
 
 ## Or getting a snapshot
 
@@ -162,7 +162,7 @@ To not generate documentation with `doxygen`, disable it with `--disable-doc`.
 
 # Version
 
-libsignifix-0.1.0 <https://qu1x.org/signifix>
+libsignifix-0.2.0 <https://qu1x.org/signifix>
 
 # License
 

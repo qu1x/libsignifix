@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Signifix. If not, see <https://www.gnu.org/licenses>.
 
-AC_INIT([Signifix], [0.1.0],
+AC_INIT([Signifix], [0.2.0],
 	[n3vu0r@qu1x.org], [libsignifix], [https://qu1x.org/signifix])
 
 AC_CONFIG_MACRO_DIR([m4])
